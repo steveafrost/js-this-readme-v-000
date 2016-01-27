@@ -69,6 +69,7 @@ function sayHi(){
   alert("Hey!! " + this);
 }
 //alerts "Hey!! undefined"
+```
 
 ## Function Scope
 
