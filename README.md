@@ -73,15 +73,37 @@ function sayHi(){
 
 ## Function Scope
 
-Let's take an example of a function using the `load` event handler:
+Let's look at a more detailed example. Let's define a function that prints `'Hello, ${name}!'`. It accepts an object that has a `name` property.
+
+```js
+function sayHello(person) {
+  console.log('Hello, ' + person.name + '!');
+}
+```
+
+Let's also define a function for creating a person:
+
+```js
+function personMaker(name) {
+  this.name = name;
+
+  return this;
+}
+```
+
+Now if we call `sayHello(personMaker('Alf'))`, we should see `Hello, Alf!`. Try it!
+
+Let's take another example to highlight some of jQuery's magic. This function handle the `load` event.
+
 ```html
 <img class="pix" src="dog.jpg">
 <img class="pix" src="cat.jpg">
 <img class="pix" src="pig.jpg">
 ```
+
 ```js
 function frameIt(){
-  $('.pix').on('load', function(){
+  $('.pix').on('load', function() {
     $('.pix').addClass("tasty");
   });
 }
@@ -91,16 +113,18 @@ There is actually a really great way to refactor the above example using `this`.
 
 ```js
 function frameIt(){
-  $('.pix').on('load', function(){
+  $('.pix').on('load', function() {
     $(this).addClass("tasty");
     alert("added class!");
   });
 }
 ```
+
 This is super cool, because `this` refers to each of the three images individually as they load. We would see the alert `added class!` appear three times if we loaded this in the browser.
 
+Behind the scenes, jQuery is modifying the `this` value of the anonymous function above by _binding_ it to value of the target element. This isn't how `this` works by default, but it's pretty cool.
 
-It's important to keep track of the scope in which `this` is being used. A change in scope will cause a change in the object `this` is referencing. 
+It's important to keep track of the scope in which `this` is being used. A change in scope will cause a change in the object `this` is referencing.
 
 ## Resources
 
