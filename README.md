@@ -1,10 +1,11 @@
 # JavaScript This
 
 ## Objectives
-+ Explain what `this` is and what it can refer to
-+ Use `this` to refer to an object that called a function
-+ Use `this` to refactor jQuery event handlers
-+ Explain how `this` refers to different objects based on scope
+
+1. Explain what `this` is and what it can refer to
+2. Use `this` to refer to an object that called a function
+3. Use `this` to refactor event handlers
+4. Explain how `this` refers to different objects based on scope
 
 ## Introduction
 
