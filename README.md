@@ -1,8 +1,12 @@
 # JavaScript This
 
+## Overview
+
+We'll introduce the `this` keyword and use it in various ways. 
+
 ## Objectives
 
-1. Explain what `this` is and what it can refer to
+1. Explain how `this` refers to the "owner" of a function
 2. Use `this` to refer to an object that called a function
 3. Use `this` to refactor event handlers
 4. Explain how `this` refers to different objects based on scope
