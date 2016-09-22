@@ -13,9 +13,9 @@ We'll introduce the `this` keyword and use it in various ways.
 
 ## Introduction
 
-It's often important in programming to know what the "owner" of a function is, so that we can operate on some specific object or data safely.
+It's often important in programming to know what the "owner" of a function is so that we can operate on some specific object or data safely.
 
-For instance, consider an event handler that fires when someone clicks on a link in the DOM. When that event handling function is invoked, we might want to know *which specific* link was clicked, so that we can manipulate it in some way.
+For instance, consider an event handler that fires when someone clicks on a link in the DOM. When that event handling function is invoked, we might want to know *which specific* link was clicked so that we can manipulate it in some way.
 
 That's where the `this` keyword comes into play. Every function is automatically assigned a `this` value when called, and that represents "who" called the function. This value can be an object, an event, or even another function.
 
@@ -50,9 +50,9 @@ checkThis();
 // outputs window object
 ```
 
-This will also output the `window` object, because this simple function call doesn't set the `this` value, and because we aren't in *strict mode*, the value of `this` must be an object, so the default global object `window` is used.
+This will also output the `window` object because this simple function call doesn't set the `this` value. Because we aren't in *strict mode*, the value of `this` must be an object, so the default global object `window` is used.
 
-**Advanced:** Strict mode is a setting that enables better error-checking in your code by prohibiting the use of implicitly declared variables, duplicate parameter names, and other potentially bug-causing behavior, and converting some silent execution errors into not-so-silent ones. For more information, check out the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode).
+**Advanced:** Strict mode is a setting that enables better error-checking in your code by prohibiting the use of implicitly declared variables, duplicate parameter names, and other potentially bug-causing behavior. Strict mode also converts some silent execution errors into not-so-silent ones. For more information, check out the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode).
 
 Let's put our function in strict mode:
 
@@ -101,15 +101,11 @@ console.log(couch.f());
 // outputs object
 ```
 
-**Top-tip:** Notice that this only outputs an `Object` and not something called
-`couch`? That's because `this` is just an instance of the base `Object`
-type here, and `couch` is just the name of the variable holding that
-object instance. The object itself is the owner of the function, and has
-no idea what you named it.
+**Top-tip:** Notice that this only outputs an `Object` and not something called `couch`? That's because `this` is just an instance of the base `Object` type here, and `couch` is just the name of the variable holding that object instance. The object itself is the owner of the function and has no idea what you named it.
 
 ### DOM Events
 
-We can also make use of `this` when handling events on the DOM. If our `index.html` has three image elements with the same css class, we might need to know which specific `img` was clicked.
+We can also make use of `this` when handling events on the DOM. If our `index.html` has three image elements with the same CSS class, we might need to know which specific `img` was clicked.
 
 ```html
 <img class="pix" src="http://i.giphy.com/S1phUc5mmaZqM.gif">
@@ -126,7 +122,7 @@ We can also make use of `this` when handling events on the DOM. If our `index.ht
 </script>
 ```
 
-Here, when we click a given image, we see that `this` refers to that specific DOM element, so if we wanted to do something like hide it or apply some other class to it, we could safely do so on just that one element.
+Here, when we click a given image, we see that `this` refers to that specific DOM element, so, if we wanted to do something like hide it or apply some other class to it, we could safely do so on just that one element.
 
 ## Summary
 
